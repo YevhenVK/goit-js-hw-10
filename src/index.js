@@ -42,7 +42,10 @@ function renderCountryList(countries) {
     .map((country) => {
         return `
         <li class="country-list__item">
-          <div class="country-info__item"><img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name}"/><h2 class="country-name"> ${country.name}</h2></div>
+          <div class="country-info__item">
+            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name}"/>
+            <h2 class="country-name"> ${country.name}</h2>
+          </div>
           <p><b>Capital</b>: ${country.capital}</p>
           <p><b>Population</b>: ${country.population}</p>
           <p><b>Languages</b>: ${country.languages}</p>
