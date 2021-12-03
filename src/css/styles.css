@@ -23,6 +23,9 @@ li {
   list-style: none;
 }
 
-/* .country-info__item {
+.country-info__item {
   display: flex;
-} */
+}
+.country-name {
+  margin-left: 15px;
+}

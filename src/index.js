@@ -43,7 +43,7 @@ function renderCountryList(countries) {
         return `
         <li class="country-list__item">
           <div class="country-info__item">
-            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
+            <img class="country-info__image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
             <h2 class="country-name"> ${country.name.official}</h2>
           </div>
         </li>`;
@@ -58,12 +58,12 @@ function renderCountryListInfo(countries) {
         return `
         <li class="country-list__item">
           <div class="country-info__item">
-            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
+            <img class="country-info__image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
             <h2 class="country-name"> ${country.name.official}</h2>
+            </div>
             <p><b>Capital</b>: ${country.capital}</p>
             <p><b>Population</b>: ${country.population}</p>
             <p><b>Languages</b>: ${Object.values(country.languages)}</p>
-          </div>
         </li>`;
     })
     .join("");

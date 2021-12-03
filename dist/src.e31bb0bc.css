@@ -23,9 +23,12 @@ li {
   list-style: none;
 }
 
-/* .country-info__item {
+.country-info__item {
   display: flex;
-} */
+}
+.country-name {
+  margin-left: 15px;
+}
 
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
