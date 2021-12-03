@@ -1164,15 +1164,36 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchCountries = fetchCountries;
 
+// export function fetchCountries(findedCountryName) {
+//     return fetch(
+//         `https://restcountries.com/v2/name/${findedCountryName}?fields=name,capital,population,flags,languages`)
+//         .then((response) => {
+//             if (!response.ok) {
+//             throw new Error(response.status);
+//             }
+//         return response.json();
+//         })
+//     .catch(error => console.err(error));
+// }
 function fetchCountries(findedCountryName) {
-  return fetch(`https://restcountries.com/v2/name/${findedCountryName}?fields=name,capital,population,flags,languages`).then(response => {
+  return fetch(`https://restcountries.com/v3.1/name/${findedCountryName}?fields=name,capital,population,flags,languages`).then(response => {
     if (!response.ok) {
       throw new Error(response.status);
     }
 
     return response.json();
   }).catch(error => console.err(error));
-}
+} // export function fetchCountries(findedCountryName) {
+//     return fetch(
+//         `https://restcountries.com/v3.1/name/${findedCountryName}?fields=${country},${capital},${population},${flags},${languages}`)
+//         .then((response) => {
+//             if (!response.ok) {
+//             throw new Error(response.status);
+//             }
+//         return response.json();
+//         })
+//     .catch(error => console.err(error));
+// }
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -1227,16 +1248,18 @@ function renderCountryList(countries) {
     return `
         <li class="country-list__item">
           <div class="country-info__item">
-            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name}"/>
-            <h2 class="country-name"> ${country.name}</h2>
+            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
+            <h2 class="country-name"> ${country.name.official}</h2>
           </div>
           <p><b>Capital</b>: ${country.capital}</p>
           <p><b>Population</b>: ${country.population}</p>
-          <p><b>Languages</b>: ${country.languages}</p>
+          <p><b>Languages</b>: ${Object.values(country.languages)}</p>
         </li>`;
   }).join("");
   refs.coutryList.innerHTML = markup;
-} // function renderCoutryInfo(data) {
+}
+
+; // function renderCoutryInfo(data) {
 //     refs.coutryInfo.innerHTML = "";
 // }
 },{"./css/styles.css":"css/styles.css","lodash.debounce":"../node_modules/lodash.debounce/index.js","notiflix/build/notiflix-notify-aio":"../node_modules/notiflix/build/notiflix-notify-aio.js","./fetchCountries":"fetchCountries.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

@@ -43,19 +43,21 @@ function renderCountryList(countries) {
         return `
         <li class="country-list__item">
           <div class="country-info__item">
-            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name}"/>
-            <h2 class="country-name"> ${country.name}</h2>
+            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
+            <h2 class="country-name"> ${country.name.official}</h2>
           </div>
           <p><b>Capital</b>: ${country.capital}</p>
           <p><b>Population</b>: ${country.population}</p>
-          <p><b>Languages</b>: ${country.languages}</p>
+          <p><b>Languages</b>: ${Object.values(country.languages)}</p>
         </li>`;
     })
     .join("");
 
     refs.coutryList.innerHTML = markup;
-}
+};
 
 // function renderCoutryInfo(data) {
 //     refs.coutryInfo.innerHTML = "";
 // }
+
+
