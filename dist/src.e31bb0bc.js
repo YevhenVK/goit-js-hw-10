@@ -1186,7 +1186,6 @@ var _fetchCountries = require("./fetchCountries");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import Notiflix from 'notiflix';
 const DEBOUNCE_DELAY = 300;
 const refs = {
   bodyContainer: document.querySelector('body'),
@@ -1207,12 +1206,15 @@ function onGetWord(event) {
   {
     (0, _fetchCountries.fetchCountries)(findedCountryName).then(countries => {
       if (countries.length > 10) {
-        _notiflixNotifyAio.Notify.info("Too many matches found. Please enter a more specific name.");
+        return _notiflixNotifyAio.Notify.info("Too many matches found. Please enter a more specific name.");
       }
 
-      if (countries.length >= 2 && countries.length < 10) {
-        renderCountryList(countries);
-      } else {}
+      if (countries.length >= 2 && countries.length <= 10) {
+        return renderCountryList(countries);
+      } // else {
+      //     renderCoutryInfo(country);
+      // }
+
     }).catch(error => _notiflixNotifyAio.Notify.failure("Oops, there is no country with that name"));
   }
   ;
@@ -1232,6 +1234,8 @@ function renderCountryList(countries) {
   }).join("");
   refs.coutryList.innerHTML = markup;
 } // function renderCoutryInfo(data) {
+//     refs.coutryInfo.innerHTML = "";
+// }
 },{"./css/styles.css":"css/styles.css","lodash.debounce":"../node_modules/lodash.debounce/index.js","notiflix/build/notiflix-notify-aio":"../node_modules/notiflix/build/notiflix-notify-aio.js","./fetchCountries":"fetchCountries.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -2,7 +2,6 @@ import './css/styles.css';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCountries } from './fetchCountries';
-// import Notiflix from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -24,14 +23,14 @@ function onGetWord(event) {
         fetchCountries(findedCountryName)
         .then(countries => {
             if (countries.length > 10) {
-                Notify.info("Too many matches found. Please enter a more specific name.");
+               return Notify.info("Too many matches found. Please enter a more specific name.");
             }
-            if (countries.length >= 2 && countries.length < 10) {
-                renderCountryList(countries);
+            if (countries.length >= 2 && countries.length <= 10) {
+                return renderCountryList(countries);
             }
-        else {
-
-        }
+        // else {
+        //     renderCoutryInfo(country);
+        // }
         })
         .catch(error => Notify.failure("Oops, there is no country with that name"));
     };
@@ -55,3 +54,5 @@ function renderCountryList(countries) {
 }
 
 // function renderCoutryInfo(data) {
+//     refs.coutryInfo.innerHTML = "";
+// }
