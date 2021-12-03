@@ -1232,10 +1232,9 @@ function onGetWord(event) {
 
       if (countries.length >= 2 && countries.length <= 10) {
         return renderCountryList(countries);
-      } // else {
-      //     renderCoutryInfo(country);
-      // }
-
+      } else {
+        renderCountryListInfo(countries);
+      }
     }).catch(error => _notiflixNotifyAio.Notify.failure("Oops, there is no country with that name"));
   }
   ;
@@ -1244,24 +1243,37 @@ function onGetWord(event) {
 ;
 
 function renderCountryList(countries) {
-  const markup = countries.map(country => {
+  const infoMarkup = countries.map(country => {
     return `
         <li class="country-list__item">
           <div class="country-info__item">
             <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
             <h2 class="country-name"> ${country.name.official}</h2>
           </div>
-          <p><b>Capital</b>: ${country.capital}</p>
-          <p><b>Population</b>: ${country.population}</p>
-          <p><b>Languages</b>: ${Object.values(country.languages)}</p>
         </li>`;
   }).join("");
-  refs.coutryList.innerHTML = markup;
+  refs.coutryList.innerHTML = infoMarkup;
 }
 
-; // function renderCoutryInfo(data) {
-//     refs.coutryInfo.innerHTML = "";
-// }
+;
+
+function renderCountryListInfo(countries) {
+  const justCoutryLists = countries.map(country => {
+    return `
+        <li class="country-list__item">
+          <div class="country-info__item">
+            <img class="country-info_image" src="${country.flags.svg}" width="100px" height="70px" alt="${country.name.official}"/>
+            <h2 class="country-name"> ${country.name.official}</h2>
+            <p><b>Capital</b>: ${country.capital}</p>
+            <p><b>Population</b>: ${country.population}</p>
+            <p><b>Languages</b>: ${Object.values(country.languages)}</p>
+          </div>
+        </li>`;
+  }).join("");
+  refs.coutryList.innerHTML = justCoutryLists;
+}
+
+;
 },{"./css/styles.css":"css/styles.css","lodash.debounce":"../node_modules/lodash.debounce/index.js","notiflix/build/notiflix-notify-aio":"../node_modules/notiflix/build/notiflix-notify-aio.js","./fetchCountries":"fetchCountries.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

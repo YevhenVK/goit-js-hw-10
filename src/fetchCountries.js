@@ -19,7 +19,7 @@ export function fetchCountries(findedCountryName) {
             }
         return response.json();
         })
-    .catch(error => console.err(error));
+        .catch(error => console.err(error));
 }
 
 // export function fetchCountries(findedCountryName) {
