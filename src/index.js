@@ -6,10 +6,8 @@ import { fetchCountries } from './fetchCountries';
 const DEBOUNCE_DELAY = 300;
 
 const refs = {
-    bodyContainer: document.querySelector('body'),
     wordFinder: document.querySelector('#search-box'),
-    coutryList: document.querySelector('.country-list'),
-    coutryInfo: document.querySelector('.country-info'),
+    countryList: document.querySelector('.country-list'),
 };
 refs.wordFinder.addEventListener('input', debounce(onGetWord, DEBOUNCE_DELAY));
 
@@ -18,7 +16,7 @@ function onGetWord(event) {
     const countryName = event.target.value;
     let findedCountryName = countryName.trim();
     if (!findedCountryName) {
-        refs.coutryList.innerHTML = "";
+        refs.countryList.innerHTML = "";
     } {
         fetchCountries(findedCountryName)
         .then(countries => {
@@ -49,11 +47,11 @@ function renderCountryList(countries) {
         </li>`;
     })
     .join("");
-    refs.coutryList.innerHTML = infoMarkup;
+    refs.countryList.innerHTML = infoMarkup;
 };
 
 function renderCountryListInfo(countries) {
-    const justCoutryLists = countries
+    const justcountryLists = countries
     .map((country) => {
         return `
         <li class="country-list__item">
@@ -68,5 +66,5 @@ function renderCountryListInfo(countries) {
     })
     .join("");
 
-    refs.coutryList.innerHTML = justCoutryLists;
+    refs.countryList.innerHTML = justcountryLists;
 };

@@ -1209,10 +1209,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const DEBOUNCE_DELAY = 300;
 const refs = {
-  bodyContainer: document.querySelector('body'),
   wordFinder: document.querySelector('#search-box'),
-  coutryList: document.querySelector('.country-list'),
-  coutryInfo: document.querySelector('.country-info')
+  countryList: document.querySelector('.country-list')
 };
 refs.wordFinder.addEventListener('input', (0, _lodash.default)(onGetWord, DEBOUNCE_DELAY));
 
@@ -1221,7 +1219,7 @@ function onGetWord(event) {
   let findedCountryName = countryName.trim();
 
   if (!findedCountryName) {
-    refs.coutryList.innerHTML = "";
+    refs.countryList.innerHTML = "";
   }
 
   {
@@ -1252,13 +1250,13 @@ function renderCountryList(countries) {
           </div>
         </li>`;
   }).join("");
-  refs.coutryList.innerHTML = infoMarkup;
+  refs.countryList.innerHTML = infoMarkup;
 }
 
 ;
 
 function renderCountryListInfo(countries) {
-  const justCoutryLists = countries.map(country => {
+  const justcountryLists = countries.map(country => {
     return `
         <li class="country-list__item">
           <div class="country-info__item">
@@ -1270,7 +1268,7 @@ function renderCountryListInfo(countries) {
             <p><b>Languages</b>: ${Object.values(country.languages)}</p>
         </li>`;
   }).join("");
-  refs.coutryList.innerHTML = justCoutryLists;
+  refs.countryList.innerHTML = justcountryLists;
 }
 
 ;
