@@ -51,7 +51,7 @@ function renderCountryList(countries) {
 };
 
 function renderCountryListInfo(countries) {
-    const justcountryLists = countries
+    const justCountryLists = countries
     .map((country) => {
         return `
         <li class="country-list__item">
@@ -66,5 +66,5 @@ function renderCountryListInfo(countries) {
     })
     .join("");
 
-    refs.countryList.innerHTML = justcountryLists;
+    refs.countryList.innerHTML = justCountryLists;
 };
