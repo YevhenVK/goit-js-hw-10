@@ -1256,7 +1256,7 @@ function renderCountryList(countries) {
 ;
 
 function renderCountryListInfo(countries) {
-  const justcountryLists = countries.map(country => {
+  const justCountryLists = countries.map(country => {
     return `
         <li class="country-list__item">
           <div class="country-info__item">
@@ -1268,7 +1268,7 @@ function renderCountryListInfo(countries) {
             <p><b>Languages</b>: ${Object.values(country.languages)}</p>
         </li>`;
   }).join("");
-  refs.countryList.innerHTML = justcountryLists;
+  refs.countryList.innerHTML = justCountryLists;
 }
 
 ;
